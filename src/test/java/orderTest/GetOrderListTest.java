@@ -1,5 +1,6 @@
 package orderTest;
 
+import BaseURI.BaseUriTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
@@ -14,7 +15,7 @@ import java.util.List;
 
 import static constants.Constants.SCOOTER_URL;
 
-public class GetOrderListTest {
+public class GetOrderListTest extends BaseUriTest {
     private OrderCreateGetList orderCreateGetList;
 
     @Before
@@ -33,5 +34,6 @@ public class GetOrderListTest {
         Assert.assertEquals(200, actualStatusCodeCreate);
         // Проверка не пустого тела ответа
         Assert.assertNotNull(orderBody);
+        Assert.assertFalse("Список заказов не должен быть пустым", orderBody.isEmpty());
     }
 }

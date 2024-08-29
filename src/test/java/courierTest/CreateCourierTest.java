@@ -1,27 +1,20 @@
-package courierTest;
+package couriertest;
 
-import static constants.Constants.SCOOTER_URL;
 import static org.hamcrest.CoreMatchers.equalTo;
 
+import BaseURI.BaseUriTest;
 import courier.Courier;
 import courier.CourierCreateAuthDelete;
 import courier.CourierTestData;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-public class CreateCourierTest {
+public class CreateCourierTest extends BaseUriTest {
     private final CourierTestData courierTestData = new CourierTestData();
     String id = null; // id курьера
-
-    @Before
-    public void setUp() {
-        RestAssured.baseURI = SCOOTER_URL;
-    }
 
     //Тест на создание курьера с верно заполненными полями.
     @Test
